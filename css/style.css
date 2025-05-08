@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Sofia Sans", sans-serif;
+    font-weight: bold;
+}
+
+:root {
+    --game-grid : #BBADA0;
+    --grid-slot : #CDC1B4;
+    --tile-2 : #EEE4DA;
+    --tile-4 : #EDE0C7;
+    --tile-8 : #F2B17A;
+    --tile-16: #F59563;
+    --tile-32: #FF7455;
+    --tile-64: #F55F3A;
+    --dark-color: #776E65;
+    --light-color: #F8F6F2;
+    
+}
+
+.tile-2 {
+    background-color: var(--tile-2);
+    color: var(--dark-color);
+}
+
+.tile-4 {
+    background-color: var(--tile-4);
+    color: var(--dark-color);
+}
+
+.tile-8 {
+    background-color: var(--tile-8);
+    color: var(--light-color);
+}
+
+.tile-16 {
+    background-color: var(--tile-16);
+    color: var(--light-color);
+}
+
+.tile-32 {
+    background-color: var(--tile-2);
+    color: var(--light-color);
+}
+
+.tile-64 {
+    background-color: var(--tile-2);
+    color: var(--light-color);
+}
+
+body, 
+header, 
+.grid-slot, 
+.container,
+.tile{
+    display: flex;
+}
+
+body, 
+.grid-slot, 
+.game-grid, 
+.container, 
+.tile-grid,
+.tile{
+    align-items: center;
+}
+
+.game-grid, .container, .tile-grid {
+    aspect-ratio: 1;
+    height: auto;
+}
+
+header, .container {
+    width: 440px;
+}
+
+.game-grid, .tile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    border-radius: 10px;
+    width: 440px;
+}
+
+.tile-grid {
+    grid-template-columns: repeat(40,1fr);
+    grid-template-rows: repeat(40,1fr);
+}
+
+.grid-slot, 
+.tile {
+    justify-content: center;
+    justify-self: center;
+    aspect-ratio: 1;
+    height: auto;
+    width: 80%;
+    border-radius: 10px;
+}
+
+body {
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 100vh;
+}
+
+header {
+    justify-content: space-between;
+}
+
+.container {
+    position: relative;
+}
+
+.game-grid{
+    background: var(--game-grid);
+}
+
+.tile-grid {
+    position: absolute;
+    
+}
+.grid-slot {
+    background: var(--grid-slot);
+}
+.tile {
+    width: 100%;
+    font-size: 4rem;
+    grid-area: 2/2/calc(2 + 32 / 4)/calc(2 + 32 / 4); 
+}
+
+/* .tile-grid:hover .tile { 
+
+    grid-area: 4/4/5/5;
+} */
+
