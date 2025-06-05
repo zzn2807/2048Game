@@ -53,11 +53,14 @@ class Board {
         }
         else{
             let spaceIdx = Math.floor(Math.random()*freeSpaces.length);
-            let space = freeSpaces[spaceIdx];
+            // let space = freeSpaces[spaceIdx];
+            let space = this.spaces[0][0];
             let tile = new Tile(space,value);
             tile.drawTile();
-            tile.slide(this.spaces[0][3]);
-            return 1;
+            setTimeout(()=>{
+                tile.slide(this.spaces[0][3]);
+                return 1;
+            },1000);
         }
     }
 }

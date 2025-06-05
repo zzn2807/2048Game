@@ -8,5 +8,7 @@ class Game {
         this.board.drawBoard();
         this.board.addTile(2);
         this.ready = true;
+        
+        
     }
 }
