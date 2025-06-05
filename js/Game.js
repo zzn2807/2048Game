@@ -10,7 +10,5 @@ class Game {
         this.board.addTile();
         this.board.printBoard();
         this.ready = true;
-        
-        
     }
 }
