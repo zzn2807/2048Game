@@ -14,4 +14,8 @@ class Space {
         space.classList.add('grid-slot');
         board.appendChild(space);
     }
+
+    addTile(tile){
+        this.tiles.push(tile);
+    }
 }

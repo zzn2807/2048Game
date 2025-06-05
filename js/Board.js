@@ -58,6 +58,7 @@ class Board {
             let space = freeSpaces[spaceIdx];
             // let space = this.spaces[0][0];
             let tile = new Tile(space,value);
+            space.addTile(tile);
             tile.drawTile();
             // setTimeout(()=>{
             //     tile.slide(this.spaces[0][3]);
