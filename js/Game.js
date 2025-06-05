@@ -6,7 +6,8 @@ class Game {
 
     startGame(){
         this.board.drawBoard();
-        this.board.addTile(2);
+        this.board.addTile();
+        this.board.addTile();
         this.ready = true;
         
         

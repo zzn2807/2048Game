@@ -47,20 +47,22 @@ class Board {
     }
 
     addTile(value){
+        let randVal = Math.random()>0.8? 4 : 2;
+        value = value | randVal;
         let freeSpaces = this.getFreeSpaces()
         if(freeSpaces.length<=0){
             return 0;
         }
         else{
             let spaceIdx = Math.floor(Math.random()*freeSpaces.length);
-            // let space = freeSpaces[spaceIdx];
-            let space = this.spaces[0][0];
+            let space = freeSpaces[spaceIdx];
+            // let space = this.spaces[0][0];
             let tile = new Tile(space,value);
             tile.drawTile();
-            setTimeout(()=>{
-                tile.slide(this.spaces[0][3]);
-                return 1;
-            },1000);
+            // setTimeout(()=>{
+            //     tile.slide(this.spaces[0][3]);
+            //     return 1;
+            // },1000);
         }
     }
 }
