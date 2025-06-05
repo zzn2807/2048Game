@@ -38,7 +38,13 @@ class Tile {
         $(tile).animate({
             top: `${targetRect.top - tileRect.top}px`,
             left: `${targetRect.left - tileRect.left}px`
-        },duration,'easeOutCubic', ()=>{})
+        },duration,'easeOutCubic', ()=>{
+            $(tile).css({
+                top: `0px`,
+                left: `0px`
+            })
+            newSpace.appendChild(tile);
+        })
         
     }
 }
