@@ -61,14 +61,14 @@ header,
 
 body, 
 .grid-slot, 
-.game-grid, 
+#game-grid, 
 .container, 
 .tile-grid,
 .tile{
     align-items: center;
 }
 
-.game-grid, .container, .tile-grid {
+#game-grid, .container, .tile-grid {
     aspect-ratio: 1;
     height: auto;
 }
@@ -77,7 +77,7 @@ header, .container {
     width: 440px;
 }
 
-.game-grid, .tile-grid {
+#game-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -85,10 +85,6 @@ header, .container {
     width: 440px;
 }
 
-.tile-grid {
-    grid-template-columns: repeat(40,1fr);
-    grid-template-rows: repeat(40,1fr);
-}
 
 .grid-slot, 
 .tile {
@@ -114,25 +110,20 @@ header {
     position: relative;
 }
 
-.game-grid{
+#game-grid{
     background: var(--game-grid);
 }
 
-.tile-grid {
-    position: absolute;
-    
-}
 .grid-slot {
     background: var(--grid-slot);
+    position: relative;
 }
 .tile {
+    position: absolute;
     width: 100%;
     font-size: 4rem;
+    z-index: 1;
     grid-area: 2/2/calc(2 + 32 / 4)/calc(2 + 32 / 4); 
 }
 
-/* .tile-grid:hover .tile { 
-
-    grid-area: 4/4/5/5;
-} */
 
