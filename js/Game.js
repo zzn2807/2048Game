@@ -8,6 +8,7 @@ class Game {
         this.board.drawBoard();
         this.board.addTile();
         this.board.addTile();
+        this.board.printBoard();
         this.ready = true;
         
         

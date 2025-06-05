@@ -34,6 +34,17 @@ class Board {
 
     }
 
+    printBoard(){
+        let board = '';
+        for(let row of this.spaces){
+            for(let space of row){
+                board += `| ${space.tiles[0]?space.tiles[0].value: ' '} |`
+            }
+            board+='\n';
+        }
+        console.log(board);
+    }
+
     getFreeSpaces(){
         const freeSpaces = [];
         for(let row of this.spaces){
