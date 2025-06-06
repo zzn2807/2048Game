@@ -32,6 +32,9 @@ class Tile {
                 left: `0px`
             })
             newSpace.appendChild(tile);
+            if($('.tile:animated').length === 0){
+                this.space.board.collapseAllTiles();
+            }
             if(next){
                 next();
             }

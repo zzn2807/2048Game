@@ -159,4 +159,14 @@ class Board {
         //If down
 
     }
+
+    collapseAllTiles(){
+        for(let row of this.spaces){
+            for(let space of row){
+                if(space.hasTile()){
+                    space.collapseTiles();
+                }
+            }
+        }
+    }
 }
