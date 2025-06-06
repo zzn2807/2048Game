@@ -97,17 +97,16 @@ class Board {
     }
     //Check if a row or column can slide
     slidable(rowOrCol){
-        let canSlide = false;
 
         for(let spaceIdx = 0; spaceIdx<rowOrCol.length; spaceIdx++){
             //If there's an empty space
-            if(rowOrCol[spaceIdx].tiles.length===0){
+            if(!rowOrCol[spaceIdx].hasTile()){
                 return true;
             }
             //If two adjacent tiles are equal
             if(spaceIdx<rowOrCol.length-1){
                 let curSpace = rowOrCol[spaceIdx];
-                let nextSpace = rowOrCol[spaceIdx];
+                let nextSpace = rowOrCol[spaceIdx+1];
                 if(curSpace.hasTile()&&nextSpace.hasTile()){
                     if(curSpace.getTile().value === nextSpace.getTile().value){
                         return true;

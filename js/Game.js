@@ -27,9 +27,12 @@ class Game {
                         }
                         this.board.addTile();
                         if(this.board.canMove()){
+                            console.log('Can Move')
                             this.ready = true;
                         }
                         else{
+                            console.log(`Can't Move`)
+                            this.board.printBoard();
                             alert('There are no more moves to make. You have lost.')
                             this.ready = false;
                         }

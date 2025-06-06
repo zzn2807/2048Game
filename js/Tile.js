@@ -18,7 +18,6 @@ class Tile {
     slide(target_space, next=null){
         let newSpace = document.getElementById(target_space.id);//New space html element
         let tile = document.getElementById(this.id); //This tile html element
-        console.log(`${this.id} moving to ${target_space.id}`)
         let tileRect = tile.getBoundingClientRect(); //Tile current coordinates
         let targetRect = newSpace.getBoundingClientRect();//New Space coordinates
         let duration = 200;//Sliding duration in ms

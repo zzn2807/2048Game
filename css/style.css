@@ -16,6 +16,11 @@
     --tile-16: #F59563;
     --tile-32: #FF7455;
     --tile-64: #F55F3A;
+    --tile-128: #edcf73;
+    --tile-256: #edcc62;
+    --tile-512: #edc850;
+    --tile-1024: #edc53f;
+    --tile-2048: #edc22d;
     --dark-color: #776E65;
     --light-color: #F8F6F2;
     
@@ -95,41 +100,72 @@ header {
     width: 100%;
     font-size: 4rem;
     z-index: 1;
+    color: var(--light-color);
     grid-area: 2/2/calc(2 + 32 / 4)/calc(2 + 32 / 4); 
 }
 
 .tile-2 {
     background-color: var(--tile-2);
-    color: var(--dark-color);
 }
 
 .tile-4 {
     background-color: var(--tile-4);
-    color: var(--dark-color);
 }
 
 .tile-8 {
     background-color: var(--tile-8);
-    color: var(--light-color);
 }
 
 .tile-16 {
     background-color: var(--tile-16);
-    color: var(--light-color);
 }
 
 .tile-32 {
     background-color: var(--tile-32);
-    color: var(--light-color);
 }
 
 .tile-64 {
     background-color: var(--tile-64);
-    color: var(--light-color);
+}
+
+.tile-128 {
+    background-color: var(--tile-128);
+}
+
+.tile-256 {
+    background-color: var(--tile-256);
+}
+
+.tile-512 {
+    background-color: var(--tile-512);
+}
+
+.tile-1024 {
+    background-color: var(--tile-1024);
+}
+
+.tile-2048 {
+    background-color: var(--tile-2048);
+}
+
+.tile-2,
+.tile-4{
+    color: var(--dark-color);
 }
 
 .tile-16,
 .tile-32,
 .tile-64{
     font-size: 3.5rem;
+}
+
+.tile-128,
+.tile-256,
+.tile-512{
+    font-size: 3rem;
+}
+
+.tile-1024,
+.tile-2048{
+    font-size: 2.5rem;
 }
