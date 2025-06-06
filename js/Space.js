@@ -44,6 +44,7 @@ class Space {
         topTile.value = newValue;
         if(newValue>oldValue){
             this.board.score += newValue;
+            this.board.updateMaxTile();
         }
     }
 }

@@ -8,6 +8,7 @@ class Game {
         this.board.drawBoard();
         this.board.addTile();
         this.board.addTile();
+        this.board.updateMaxTile();
         this.board.printBoard();
         this.ready = true;
     }
@@ -19,11 +20,17 @@ class Game {
             if(this.board.move(event.key)){
                 $.when($('.tile:animated').length === 0).then(()=>{
                     setTimeout(()=>{
+                        if(this.board.max_tile>=2048){
+                            alert(`You've won!!!`);
+                            this.ready = false;
+                            return;
+                        }
                         this.board.addTile();
                         if(this.board.canMove()){
                             this.ready = true;
                         }
                         else{
+                            alert('There are no more moves to make. You have lost.')
                             this.ready = false;
                         }
                     },150);

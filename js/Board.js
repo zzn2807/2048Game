@@ -5,7 +5,18 @@ class Board {
         this.id = 'game-grid';
         this.tile_counter = 0;
         this.score = 0;
+        this.max_tile = 0;
         this.spaces = this.createSpaces();
+    }
+
+    updateMaxTile(){
+        for(let row of this.spaces){
+            for(let space of row){
+                if(space.hasTile() && space.getTile().value>this.max_tile){
+                    this.max_tile = space.getTile().value;
+                }
+            }
+        }
     }
 
     updateScore(){
