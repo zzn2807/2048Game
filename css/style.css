@@ -21,35 +21,7 @@
     
 }
 
-.tile-2 {
-    background-color: var(--tile-2);
-    color: var(--dark-color);
-}
 
-.tile-4 {
-    background-color: var(--tile-4);
-    color: var(--dark-color);
-}
-
-.tile-8 {
-    background-color: var(--tile-8);
-    color: var(--light-color);
-}
-
-.tile-16 {
-    background-color: var(--tile-16);
-    color: var(--light-color);
-}
-
-.tile-32 {
-    background-color: var(--tile-2);
-    color: var(--light-color);
-}
-
-.tile-64 {
-    background-color: var(--tile-2);
-    color: var(--light-color);
-}
 
 body, 
 header, 
@@ -126,4 +98,38 @@ header {
     grid-area: 2/2/calc(2 + 32 / 4)/calc(2 + 32 / 4); 
 }
 
+.tile-2 {
+    background-color: var(--tile-2);
+    color: var(--dark-color);
+}
 
+.tile-4 {
+    background-color: var(--tile-4);
+    color: var(--dark-color);
+}
+
+.tile-8 {
+    background-color: var(--tile-8);
+    color: var(--light-color);
+}
+
+.tile-16 {
+    background-color: var(--tile-16);
+    color: var(--light-color);
+}
+
+.tile-32 {
+    background-color: var(--tile-32);
+    color: var(--light-color);
+}
+
+.tile-64 {
+    background-color: var(--tile-64);
+    color: var(--light-color);
+}
+
+.tile-16,
+.tile-32,
+.tile-64{
+    font-size: 3.5rem;
+}

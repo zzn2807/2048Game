@@ -12,17 +12,22 @@ class Game {
         this.ready = true;
     }
 
+    
+
     handleKeyDown(event){
         if(this.ready === true){
             if(this.board.move(event.key)){
                 $.when($('.tile:animated').length === 0).then(()=>{
-                    this.board.addTile();
-                    if(this.board.canMove()){
-                        this.ready = true;
-                    }
-                    else{
-                        this.ready = false;
-                    }
+                    setTimeout(()=>{
+                        this.board.addTile();
+                        if(this.board.canMove()){
+                            this.ready = true;
+                        }
+                        else{
+                            this.ready = false;
+                        }
+                    },150);
+                    
                 });
             }
         }

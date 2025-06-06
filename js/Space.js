@@ -28,7 +28,7 @@ class Space {
     }
 
     collapseTiles(){
-        
+        let oldValue = this.getTile().value
         let newValue = this.getTile().value * this.tiles.length;
         //Delete tiles besides top tile
         while(this.tiles.length>1){
@@ -42,6 +42,8 @@ class Space {
         topTileHTML.classList.add(`tile-${newValue}`);
         topTileHTML.innerHTML = newValue;
         topTile.value = newValue;
-        
+        if(newValue>oldValue){
+            this.board.score += newValue;
+        }
     }
 }

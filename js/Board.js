@@ -4,7 +4,13 @@ class Board {
         this.cols = 4;
         this.id = 'game-grid';
         this.tile_counter = 0;
+        this.score = 0;
         this.spaces = this.createSpaces();
+    }
+
+    updateScore(){
+        let scoreboard = document.getElementById('scoreboard');
+        scoreboard.innerHTML = `Score: ${this.score}`;
     }
 
     createSpaces(){

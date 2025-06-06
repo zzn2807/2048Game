@@ -34,6 +34,7 @@ class Tile {
             newSpace.appendChild(tile);
             if($('.tile:animated').length === 0){
                 this.space.board.collapseAllTiles();
+                this.space.board.updateScore();
             }
             if(next){
                 next();
