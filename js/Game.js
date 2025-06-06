@@ -11,4 +11,8 @@ class Game {
         this.board.printBoard();
         this.ready = true;
     }
+
+    handleKeyDown(event){
+        this.board.move(event.key);
+    }
 }
