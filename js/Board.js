@@ -120,6 +120,7 @@ class Board {
     }
 
     move(direction){
+        let moved = false;
         //If left
         if(direction.toLowerCase()==="arrowleft"){
             for(let row of this.spaces){
@@ -134,12 +135,12 @@ class Board {
                     }
                     //If current tile can slide into the extreme space, slide and then move to next space
                     else if(!exSpace.hasTile() || (exSpace.tiles.length<2&&curSpace.getTile().value === exSpace.getTile().value)){
-                        console.log(`Sliding from ${curSpace.id} to ${exSpace.id}`)
                         let curTile = curSpace.tiles.pop();
                         exSpace.tiles.push(curTile);
                         curTile.space = exSpace;
                         curTile.slide(exSpace);
                         curIdx++;
+                        moved = true;
                     }
                     //If current tile can't slide into next tile
                     else{
@@ -153,11 +154,103 @@ class Board {
             }
         }
         //If right
-
+        else if(direction.toLowerCase()==="arrowright"){
+            for(let row of this.spaces){
+                let extremeIdx = row.length-1;
+                let curIdx = row.length-2;
+                while(curIdx>=0){
+                    let curSpace = row[curIdx];
+                    let exSpace = row[extremeIdx];
+                    //If Current space is empty, move to next space
+                    if(!curSpace.hasTile()){
+                        curIdx--;
+                    }
+                    //If current tile can slide into the extreme space, slide and then move to next space
+                    else if(!exSpace.hasTile() || (exSpace.tiles.length<2&&curSpace.getTile().value === exSpace.getTile().value)){
+                        let curTile = curSpace.tiles.pop();
+                        exSpace.tiles.push(curTile);
+                        curTile.space = exSpace;
+                        curTile.slide(exSpace);
+                        curIdx--;
+                        moved = true;
+                    }
+                    //If current tile can't slide into next tile
+                    else{
+                        //If the current space and extreme space are adjacent, move to next space
+                        if(extremeIdx-curIdx<=1){
+                            curIdx--;
+                        }
+                        extremeIdx--;
+                    }
+                }
+            }
+        }
         //If up
+        if(direction.toLowerCase()==="arrowup"){
+            for(let col of this.spaces[0].map((x,i) => this.spaces.map(x => x[i]))){
+                let extremeIdx = 0;
+                let curIdx = 1;
+                while(curIdx<col.length){
+                    let curSpace = col[curIdx];
+                    let exSpace = col[extremeIdx];
+                    //If Current space is empty, move to next space
+                    if(!curSpace.hasTile()){
+                        curIdx++;
+                    }
+                    //If current tile can slide into the extreme space, slide and then move to next space
+                    else if(!exSpace.hasTile() || (exSpace.tiles.length<2&&curSpace.getTile().value === exSpace.getTile().value)){
+                        let curTile = curSpace.tiles.pop();
+                        exSpace.tiles.push(curTile);
+                        curTile.space = exSpace;
+                        curTile.slide(exSpace);
+                        curIdx++;
+                        moved = true;
+                    }
+                    //If current tile can't slide into next tile
+                    else{
+                        //If the current space and extreme space are adjacent, move to next space
+                        if(curIdx-extremeIdx<=1){
+                            curIdx++;
+                        }
+                        extremeIdx++;
+                    }
+                }
+            }
+        }
 
         //If down
-
+        else if(direction.toLowerCase()==="arrowdown"){
+            for(let col of this.spaces[0].map((x,i) => this.spaces.map(x => x[i]))){
+                let extremeIdx = col.length-1;
+                let curIdx = col.length-2;
+                while(curIdx>=0){
+                    let curSpace = col[curIdx];
+                    let exSpace = col[extremeIdx];
+                    //If Current space is empty, move to next space
+                    if(!curSpace.hasTile()){
+                        curIdx--;
+                    }
+                    //If current tile can slide into the extreme space, slide and then move to next space
+                    else if(!exSpace.hasTile() || (exSpace.tiles.length<2&&curSpace.getTile().value === exSpace.getTile().value)){
+                        let curTile = curSpace.tiles.pop();
+                        exSpace.tiles.push(curTile);
+                        curTile.space = exSpace;
+                        curTile.slide(exSpace);
+                        curIdx--;
+                        moved = true;
+                    }
+                    //If current tile can't slide into next tile
+                    else{
+                        //If the current space and extreme space are adjacent, move to next space
+                        if(extremeIdx-curIdx<=1){
+                            curIdx--;
+                        }
+                        extremeIdx--;
+                    }
+                }
+            }
+        }
+        return moved;
     }
 
     collapseAllTiles(){
