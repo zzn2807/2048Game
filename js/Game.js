@@ -17,17 +17,17 @@ class Game {
 
     handleKeyDown(event){
         if(this.ready === true){
+            this.ready = false
             if(this.board.move(event.key)){
                 $.when($('.tile:animated').length === 0).then(()=>{
+                    if(this.board.max_tile>=2048){
+                        alert(`You've won!!!`);
+                        this.ready = false;
+                        return;
+                    }
                     setTimeout(()=>{
-                        if(this.board.max_tile>=2048){
-                            alert(`You've won!!!`);
-                            this.ready = false;
-                            return;
-                        }
                         this.board.addTile();
                         if(this.board.canMove()){
-                            console.log('Can Move')
                             this.ready = true;
                         }
                         else{
@@ -36,9 +36,14 @@ class Game {
                             alert('There are no more moves to make. You have lost.')
                             this.ready = false;
                         }
-                    },150);
+                    },200)
+                    
+                    
                     
                 });
+            }
+            else{
+                this.ready = true
             }
         }
         
