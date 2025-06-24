@@ -6,7 +6,10 @@
     font-family: "Sofia Sans", sans-serif;
     font-weight: bold;
 }
-
+html{
+    overflow: hidden;
+    overscroll-behavior: none;
+}
 :root {
     --game-grid : #BBADA0;
     --grid-slot : #CDC1B4;
