@@ -20,12 +20,13 @@ class Game {
             this.ready = false
             if(this.board.move(event.key)){
                 $.when($('.tile:animated').length === 0).then(()=>{
-                    if(this.board.max_tile>=2048){
-                        alert(`You've won!!!`);
-                        this.ready = false;
-                        return;
-                    }
+                    
                     setTimeout(()=>{
+                        if(this.board.max_tile>=2048){
+                            alert(`You've won!!!`);
+                            this.ready = false;
+                            return;
+                        }
                         this.board.addTile();
                         if(this.board.canMove()){
                             this.ready = true;
