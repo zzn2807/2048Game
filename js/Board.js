@@ -9,6 +9,17 @@ class Board {
         this.spaces = this.createSpaces();
     }
 
+    check2048(){
+        for(let row of this.spaces){
+            for(let space of row){
+                if(space.hasTile() && space.getTile().value==2048){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     updateMaxTile(){
         for(let row of this.spaces){
             for(let space of row){
