@@ -23,31 +23,36 @@ touchableElement.addEventListener('touchend', function (event) {
 
 
 function handleGesture() {
-    if (touchendX < touchstartX) {
-        console.log('Swiped Left');
-        let event = {}
-        event.key = "arrowleft"
-        game.handleKeyDown(event)
-    }
+    if(Math.abs(touchstartX-touchendX)>Math.abs(touchstartY-touchendY)){
+        if (touchendX < touchstartX) {
+            console.log('Swiped Left');
+            let event = {}
+            event.key = "arrowleft"
+            game.handleKeyDown(event)
+        }
 
-    if (touchendX > touchstartX) {
-        console.log('Swiped Right');
-        let event = {}
-        event.key = "arrowright"
-        game.handleKeyDown(event)
-    }
+        if (touchendX > touchstartX) {
+            console.log('Swiped Right');
+            let event = {}
+            event.key = "arrowright"
+            game.handleKeyDown(event)
+        }
 
-    if (touchendY < touchstartY) {
-        console.log('Swiped Up');
-        let event = {}
-        event.key = "arrowup"
-        game.handleKeyDown(event)
     }
+    else{
+        if (touchendY < touchstartY) {
+            console.log('Swiped Up');
+            let event = {}
+            event.key = "arrowup"
+            game.handleKeyDown(event)
+        }
 
-    if (touchendY > touchstartY) {
-        console.log('Swiped Down');
-        let event = {}
-        event.key = "arrowdown"
-        game.handleKeyDown(event)
+        if (touchendY > touchstartY) {
+            console.log('Swiped Down');
+            let event = {}
+            event.key = "arrowdown"
+            game.handleKeyDown(event)
+        }
     }
+    
 }
