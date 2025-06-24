@@ -64,6 +64,9 @@ header, .container,#game-grid {
     border-radius: 10px;
 }
 
+#game-grid {
+    font-size: 0.86rem;
+}
 
 .grid-slot, 
 .tile {
@@ -100,7 +103,7 @@ header {
 .tile {
     position: absolute;
     width: 100%;
-    font-size: 4rem;
+    font-size: 4em;
     z-index: 1;
     color: var(--light-color);
     grid-area: 2/2/calc(2 + 32 / 4)/calc(2 + 32 / 4); 
@@ -158,22 +161,25 @@ header {
 .tile-16,
 .tile-32,
 .tile-64{
-    font-size: 3.5rem;
+    font-size: 3.5em;
 }
 
 .tile-128,
 .tile-256,
 .tile-512{
-    font-size: 3rem;
+    font-size: 3em;
 }
 
 .tile-1024,
 .tile-2048{
-    font-size: 2.5rem;
+    font-size: 2.5em;
 }
 
 @media screen and (min-width: 480px){
     header, .container,#game-grid {
         width: 440px;
+    }
+    #game-grid {
+        font-size: 1rem;
     }
 }
